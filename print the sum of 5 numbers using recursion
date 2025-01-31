@@ -1,0 +1,11 @@
+#include <stdio.h>
+int sumofn(int a){
+    if(a==0)
+    return 0;
+    return a+sumofn(a-1);
+}
+int main() {
+    int result= sumofn(5);
+    printf("sum of 5 numbers :%d \n", result);
+    return 0;
+}
