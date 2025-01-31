@@ -1,0 +1,12 @@
+#include <stdio.h>
+void EvenorOdd(int a){
+    if(a%2==0) printf("Even number\n");
+    else printf("Odd number\n");
+}
+int main(){
+    int n,m;
+    printf("Enter the two numbers: ");
+    scanf("%d %d",&n,&m);
+    EvenorOdd(n);
+    EvenorOdd(m);
+}
