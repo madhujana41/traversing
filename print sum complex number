@@ -1,0 +1,24 @@
+#include <stdio.h>
+typedef struct complexNumber{
+    int real;
+    int imag;
+}complex;
+complex add(complex x, complex y)
+{
+    complex add;
+    add.real= x.real+y.real;
+    add.imag=x.imag+y.imag;
+    return (add);
+}
+int main(){
+    complex x,y,sum;
+    x.real=1;
+    x.imag=2;
+    y.real=2;
+    y.imag=3;
+    printf("x= %d + %di\n",x.real, x.imag);
+    printf("y= %d + %di\n", y.real, y.imag);
+    sum=add(x,y);
+    printf("\n sum = %d + %di", sum.real, sum.imag);
+    return 0;
+}
