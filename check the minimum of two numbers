@@ -1,0 +1,12 @@
+#include <stdio.h>
+int min(int *a, int *b){
+    return (*a < *b) ? *a : *b;
+}
+int main() {
+    int num1, num2, minimum;
+    printf("Enter two numbers:");
+    scanf("%d %d", &num1, &num2);
+    minimum= min(&num1 , &num2);
+    printf("The minimum value is %d", minimum);
+    return 0;
+} 
