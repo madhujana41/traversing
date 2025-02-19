@@ -1,0 +1,20 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+           int N,digit1,digit2,diff,ans,place;
+           scanf("%d" ,&N);
+           while(N>99){
+               ans = 0, place = 1;
+               while(N>9){
+                   digit1 = N%10;
+                   digit2 = (N/10)%10;
+                   ans = ans + (diff*place);
+                   place *= 10;
+                   N/=10;
+               }
+               N = ans;
+           }
+           printf("%d" ,ans);
+           return 0;
+}
