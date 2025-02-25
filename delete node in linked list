@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// A linked list node
+struct Node {
+    int val;
+    struct Node* next;
+};
+// Function to insert the node
+void pushNode(struct Node** head_ref, int data)
+{
+    struct Node* new_node
+        = (struct Node*)malloc(sizeof(struct Node));
+    new_node->val = data;
+    new_node->next = (*head_ref);
+    (*head_ref) = new_node;
+}
+
+// Function to delete the node with the given key
+void deleteNodeWithKey(struct Node** head, int key)
+{
+    // If head is NULL, then the list is empty
+    if (head == NULL) {
+        return;
+    }
+
+    // If current node is the node to be deleted 
+    if ((*head)->val == key) {
+        struct Node* del_node = (*head);
+        *head = (*head)->next;
+        free(del_node);
+        return;
+    }
+    
+    deleteNodeWithKey(&((*head)->next), key); // Recursively call the function passing the reference and key to the node
+}
+
+// Print the linked list
+void printList(struct Node* node)
+{
+    while (node != NULL) {
+        printf(" %d ", node->val);
+        node = node->next;
+    }
+}
+
+//Print the linked list after deletion
+void printListPostDeletion(struct Node* node)
+{
+    while (node != NULL) {
+                   if(node->val != 0)
+            printf(" %d ", node->val);
+        node = node->next;
+    }
+}
+
+// Driver code
+int main()
+{
+    /* Start with the empty list */
+    struct Node* head = NULL;
+
+    pushNode(&head, 1);
+    pushNode(&head, 5);
+    pushNode(&head, 7);
+    pushNode(&head, 15);
+    pushNode(&head, 20);
+    printf("Linked list before deleting the key\n");
+    printList(head);
+    printf("\n");
+    deleteNodeWithKey(&head, 7);
+    printf("Linked list after deleting the key\n");
+    printListPostDeletion(head);
+    return 0;
+}
